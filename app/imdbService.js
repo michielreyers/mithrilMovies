@@ -7,10 +7,10 @@ var imdbService = (function(){
     var search = function(q){
 
        return m.request({method: 'GET', url:imdbApi + '?s=' + q})
-            .then(function(data) {
-                console.log(data);
-                return data;
-            })
+            .then(
+                function(data) {
+                    return data;
+            },function(err){ console.log('uh oh', err)})
 
     }
 

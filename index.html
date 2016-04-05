@@ -1,82 +1,25 @@
 <!doctype html>
 <html>
 <head>
-    <title>Todo app</title>
+    <title>imdb app</title>
     <script src="/node_modules/mithril/mithril.js"></script>
-<script>
 
-
-    var mcomp = {
-
-        vm : {
-            init: function() {
-                var _this= mcomp;
-
-                //a running list of todos
-                mcomp.vm.list = [];
-
-                //a slot to store the name of a new mcomp before it is created
-                mcomp.vm.description = m.prop('');
-
-                //adds a mcomp to the list, and clears the description field for user convenience
-                mcomp.vm.search = function() {
-                    console.log('search for ', mcomp.vm.description());
-                };
-            }
-        },
-
-        Todo : function(data) {
-            this.description = m.prop(data.description);
-            this.done = m.prop(false);
-        },
-
-        controller: function() {
-            mcomp.vm.init();
-        },
-
-
-        view: function() {
-            return m("form", {onsubmit:mcomp.vm.search}, [
-                m("input",{
-                    onkeyup: m.withAttr("value", mcomp.vm.description), value: mcomp.vm.description()
-                }),
-                m("button",{onclick: mcomp.vm.search}, "Search"),
-                m("div", mcomp.vm.description())
-
-            ]);
-
-        }
-    }
-
-
-    function withKey(key, callback) {
-        return function(e) {
-            if (e.keyCode == key) callback(key)
-            else m.redraw.strategy("none")
-        }
-    }
-
-
-
-
-</script>
 <style>
     label.block {display:block;}
 </style>
 </head>
 <body>
+<div id="searchbar"></div>
 
 
-
-<div id="appcontainer"></div>
-
-<script>
-    m.mount(document.getElementById('appcontainer'), {controller: mcomp.controller, view: mcomp.view});
-</script>
 
 <script src="app/imdbService.js"></script>
 <script src="app/app.js"></script>
 <script src="app/router.js"></script>
+
+<script>
+    m.mount(document.getElementById('searchbar'), {controller: SearchBar.ctrl, view: SearchBar.view});
+</script>
 
 </body>
 </html>
