@@ -9,6 +9,7 @@ var imdbService = (function(){
        return m.request({method: 'GET', url:imdbApi + '?s=' + q})
             .then(
                 function(data) {
+
                     return data;
             },function(err){ console.log('uh oh', err)})
 
