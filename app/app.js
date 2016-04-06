@@ -11,8 +11,6 @@ var SearchBar = {
             console.log(st);
             imdbService.search(st).then(
                 function(res){
-                    console.log(res);
-
                     //  if(res.Response) {
                         _this.results = res.Search;
                         _this.resultCount = res.totalResults;
@@ -20,12 +18,6 @@ var SearchBar = {
                 }
             );
         }
-    },
-
-    cleanImage: function(url){
-        var output = url.replace('SX300','');
-        console.log(output);
-        return output;
     },
 
     view: function(){
@@ -41,7 +33,7 @@ var SearchBar = {
 
             SearchBar.results.map(function(movie, index) {
                 return m("div[class=movieitem]", [
-                    m("img[src=" + SearchBar.cleanImage(movie.Poster) + "]"),
+                    m("img[src=" + movie.Thumb + "]"),
                     m("h2", movie.Title + ' (' + movie.Year + ')'),
                     m("a[href=#" + movie.imdbID + "]", "View details"),
                     m("hr")
@@ -57,4 +49,4 @@ var MovieList = {
 
 
 
-}
+};
