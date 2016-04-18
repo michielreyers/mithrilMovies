@@ -1,0 +1,21 @@
+{
+  "name": "mithril.poc",
+  "description": "",
+  "main": "index.html",
+  "authors": [
+    "michielreyers <michielreyers@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/michielreyers/mithrilMovies",
+  "dependencies": {
+    "mithril": "^0.2.3"
+  },
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

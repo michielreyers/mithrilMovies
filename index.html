@@ -2,25 +2,16 @@
 <html>
 <head>
     <title>imdb app</title>
-    <script src="/node_modules/mithril/mithril.js"></script>
-
+   	<link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
+    <link href="build/css/mmov.css" rel="stylesheet" type="text/css">
+ 	<script src="lib/mithril/mithril.js"></script>
 <style>
-    label.block {display:block;}
+    
 </style>
 </head>
 <body>
-<div id="searchbar"></div>
-
-
-
-<script src="app/imdbService.js"></script>
-<script src="app/app.js"></script>
-<script src="app/router.js"></script>
-
-<script>
-    m.mount(document.getElementById('searchbar'), {controller: SearchBar.ctrl, view: SearchBar.view});
-</script>
-
+<div id="appContainer"></div>
+<script src="build/js/mMovies.js"></script>
 </body>
 </html>
 

@@ -6,9 +6,7 @@ var imdbService = (function(){
 
     var search = function(q){
 
-        console.log('service', q);
-
-           return m.request({method: 'GET', url:imdbApi + '?s=' + q}).then(
+        return m.request({method: 'GET', url:imdbApi + '?s=' + q}).then(
             function(data) {
 
                 // add thumbnails
@@ -25,7 +23,16 @@ var imdbService = (function(){
 
     var details = function(id){
 
-
+// http://www.omdbapi.com/?i=tt0080684&tomatoes=true
+        return m.request({method: 'GET', url:imdbApi + '?&tomatoes=true&i=' + id}).then(
+            function(data) {
+                data.dPoster = data.Poster.replace('._V1_SX300.jpg','._V1_SY300.jpg');
+                return data;
+            },
+            function(err){
+                console.log('uh oh', err)
+            }
+        )
 
     };
 

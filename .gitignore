@@ -5,14 +5,12 @@ logs
 # node-waf configuration
 .lock-wscript
 
-# Compiled binary addons (http://nodejs.org/api/addons.html)
-build/Release
-
 # Dependency directory
 node_modules
+lib
 
-#dist folder
-dist
+#build folder
+build
 
 #Webstorm metadata
 .idea
